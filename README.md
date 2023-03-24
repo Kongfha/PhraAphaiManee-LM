@@ -1,2 +1,32 @@
-# PhraAphaiManee-LM
-Casual Language Model for Thai Poem Generation
+# PhraAphaiManee-LM (แต่งกลอนสไตล์พระอภัยมณี ด้วย GPT-2)
+
+PhraAphaiManee-LM or GPT-2 for Thai poem (PhraAphaiManee-Style).
+I use [GPT-2 for Thai lyrics](https://huggingface.co/tupleblog/generate-thai-lyrics), 
+which is based on [GPT-2 base Thai](https://huggingface.co/flax-community/gpt2-base-thai) as a pre-trained model for 
+[PhraAphaiManee (พระอภัยมณี)](https://vajirayana.org/%e0%b8%9e%e0%b8%a3%e0%b8%b0%e0%b8%ad%e0%b8%a0%e0%b8%b1%e0%b8%a2%e0%b8%a1%e0%b8%93%e0%b8%b5) dataset.
+
+โมเดลนี้เป็น GPT-2 ถูกเทรนด้วยกลอนพระอภัยมณี สำหรับการแต่งกลอนสไตล์พระอภัยมณี
+
+## Example use
+``` py
+from transformers import pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+model_name = "Kongfha/PhraAphaiManee-LM"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
+
+generate = pipeline("text-generation",
+                    model=model,
+                    tokenizer=tokenizer)
+
+input_sentence = "๏ สัมผัสเส้นขอบฟ้าชลาลัย"
+generated_text = generate(input_sentence,
+                          max_length=140,
+                          top_k=25,
+                          temperature=1)
+# generation parameters can be varied 
+
+print(f"Input: {text}")
+print(f"Output:\n {generated_text[0]['generated_text']}")
+```
