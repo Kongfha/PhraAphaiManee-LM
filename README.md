@@ -1,5 +1,7 @@
 # PhraAphaiManee-LM 
 
+<font size=4>***\*\*&ensp;I've created an improved model with better rhyming patterns accuracy, and you can now access it through this GitHub Repository -> [Kongfha/KlonSuphap-LM](https://github.com/Kongfha/KlonSuphap-LM/)&ensp;\*\****</font>
+
 PhraAphaiManee-LM or GPT-2 for Thai poem (PhraAphaiManee-Style).
 I use [GPT-2 for Thai lyrics](https://huggingface.co/tupleblog/generate-thai-lyrics), 
 which is based on [GPT-2 base Thai](https://huggingface.co/flax-community/gpt2-base-thai) as a pre-trained model for 
